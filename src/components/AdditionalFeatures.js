@@ -1,6 +1,8 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import { connect } from 'react-redux';
 
+// we only need the additionalFeatures array from state here
 const AdditionalFeatures = props => {
   return (
     <div className="content">
@@ -18,4 +20,8 @@ const AdditionalFeatures = props => {
   );
 };
 
-export default AdditionalFeatures;
+const mapStateToProps = state => {
+  additionalFeatures: state.additionalFeatures
+}
+
+export default connect(mapStateToProps, {})(AdditionalFeatures);
