@@ -1,6 +1,7 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
 import { connect } from 'react-redux';
+import { addFeature } from './actions'
 
 // we only need the additionalFeatures array from state here
 const AdditionalFeatures = props => {
@@ -10,7 +11,7 @@ const AdditionalFeatures = props => {
       {props.additionalFeatures.length ? (
         <ol type="1">
           {props.additionalFeatures.map(item => {
-           return <AdditionalFeature key={item.id} feature={item} buyItem={props.buyItem}/>
+           return <AdditionalFeature key={item.id} feature={item} addFeature={props.addFeature}/>
           })}
         </ol>
       ) : (
@@ -26,4 +27,4 @@ const mapStateToProps = state => {
   }  
 }
 
-export default connect(mapStateToProps, {})(AdditionalFeatures);
+export default connect(mapStateToProps, { addFeature })(AdditionalFeatures);
