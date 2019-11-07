@@ -3,7 +3,6 @@ import AdditionalFeature from './AdditionalFeature';
 import { connect } from 'react-redux';
 import { addFeature } from './actions'
 
-// we only need the additionalFeatures array from state here
 const AdditionalFeatures = props => {
   return (
     <div className="content">
