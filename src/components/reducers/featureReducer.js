@@ -21,8 +21,10 @@ import { ADD_FEATURE, REMOVE_FEATURE, UPDATE_TOTAL } from "../actions";
     switch(action.type) {
       case ADD_FEATURE:
         const featureToAdd = state.additionalFeatures.find(feature => feature.id === action.payload.id)
-        console.log(state)
-        return {
+        console.log(state.car.features)
+        if (state.car.features.includes(featureToAdd)) {
+          return state
+        } else return {
           ...state, car: {
             ...state.car, features: [...state.car.features, featureToAdd]
           }
