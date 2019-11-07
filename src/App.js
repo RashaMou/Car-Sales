@@ -10,19 +10,19 @@ import Total from './components/Total';
 const App = (props) => {
   // console.log('props fom app', props.car)
 
-  const removeFeature = item => {
-    props.removeFeature()
+  const removeFeature = feature => {
+    props.removeFeature(feature)
   };
 
-  const buyItem = featureId => {
-    props.addFeature(featureId)
+  const buyItem = feature => {
+    props.addFeature(feature)
   };
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car} removeFeature={removeFeature}/>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} buyItem={buyItem}/>
@@ -33,7 +33,6 @@ const App = (props) => {
 };
 
 const mapStateToProps = state => {
-  // console.log(state)
   return {
     car: state.car,
     additionalFeatures: state.additionalFeatures,
